@@ -6,7 +6,7 @@ import icon from "astro-icon";
 
 export default defineConfig({
   site: "https://naskz.github.io",
-  base: '/naskz_website',
+  base: '/',
   integrations: [mdx(), sitemap(), icon()],
   vite: {
     plugins: [tailwindcss()],
