@@ -1,0 +1,58 @@
+---
+export interface Props {
+  label: string;              // e.g. "SIREN"
+  value: string;              // sensitive value
+  buttonText?: string;        // e.g. "Show"
+  copy?: boolean;             // show copy button
+}
+
+const { label, value, buttonText = "Show", copy = false } = Astro.props;
+const id = `reveal-${Math.random().toString(16).slice(2)}`;
+---
+
+<div class="not-prose flex flex-wrap items-center gap-3">
+  <span class="min-w-[5rem] font-medium text-slate-700">{label}:</span>
+
+  <button
+    id={`${id}-btn`}
+    type="button"
+    class="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-700 hover:bg-slate-100">
+    {buttonText}
+  </button>
+
+  <span id={`${id}-val`} class="hidden text-slate-900 font-medium"></span>
+
+  {copy && (
+    <button
+      id={`${id}-copy`}
+      type="button"
+      class="hidden rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-700 hover:bg-slate-100">
+      Copy
+    </button>
+  )}
+</div>
+
+<script define:vars={{ id, value, copy }}>
+  const btn = document.getElementById(`${id}-btn`);
+  const valEl = document.getElementById(`${id}-val`);
+  const copyBtn = document.getElementById(`${id}-copy`);
+
+  function reveal() {
+    valEl.textContent = value;
+    valEl.classList.remove("hidden");
+    btn.remove();
+
+    if (copy && copyBtn) {
+      copyBtn.classList.remove("hidden");
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(value);
+          copyBtn.textContent = "Copied";
+          setTimeout(() => (copyBtn.textContent = "Copy"), 1200);
+        } catch {}
+      });
+    }
+  }
+
+  btn.addEventListener("click", reveal);
+</script>

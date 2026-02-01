@@ -1,0 +1,40 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Reveal from "@/components/ui/reveal.astro";
+
+const title = "Legal notice";
+const description = "Legal notice and company information for NASK.";
+---
+
+<Layout title={title} description={description}>
+  <Container>
+    <section class="mt-16 md:mt-0 scroll-mt-24">
+      <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Legal notice</h1>
+
+      <div class="prose prose-slate max-w-none mt-8">
+        <h2>Website publisher</h2>
+
+        <p><strong>NASK</strong><br />
+          Legal form: SAS (Société par Actions Simplifiée)<br />
+          Share capital: €1,000.00<br />
+          Registered office: France
+        </p>
+<div class="not-prose mt-6 flex flex-col gap-1">
+  <Reveal label="SIRET (HQ)" value="882 344 674 00016" />
+  <Reveal label="VAT" value="FR64882344674" />
+  <Reveal label="RCS" value="882 344 674 R.C.S. Marseille" />
+</div>
+
+
+        <p class="mt-6">
+          Registered with the Trade and Companies Register (RCS) of Marseille on 10/03/2020<br />
+          Registered with the French National Business Register (RNE) on 10/03/2020<br />
+          Publication director: NASK
+        </p>
+
+        <!-- rest of the page -->
+      </div>
+    </section>
+  </Container>
+</Layout>

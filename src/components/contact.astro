@@ -1,0 +1,22 @@
+---
+import Link from "./ui/link.astro";
+import EmailReveal from "./ui/emailreveal.astro";
+---
+
+<section id="contact" class="mt-24 scroll-mt-24">
+  <div class="mx-auto max-w-5xl rounded-2xl border border-slate-200 bg-slate-50 p-8 md:px-20 md:py-16 text-center">
+    <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-slate-900">
+      Let's talk
+    </h2>
+
+    <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+      Have an idea, a project, a problem — or simply want to exchange and think things through together?
+      Feel free to reach out.
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <!-- Reveals the email on click -->
+      <EmailReveal />
+    </div>
+  </div>
+</section>

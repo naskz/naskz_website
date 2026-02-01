@@ -1,0 +1,71 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+
+const services = [
+  {
+    title: "Technical Advisory",
+    description:
+      "Independent technical insight to assess situations, clarify constraints and support complex infrastructure decisions.",
+    icon: "bx:bxs-brain",
+  },
+  {
+    title: "Platform Architecture",
+    description:
+      "Definition of coherent infrastructure and platform architectures, grounded in real operational constraints.",
+    icon: "bx:bxs-server",
+  },
+  {
+    title: "Enterprise Networking & Wi-Fi",
+    description:
+      "Design and operation of wired and wireless enterprise networks, from user access to datacenter connectivity.",
+    icon: "bx:bxs-network-chart",
+  },
+  {
+    title: "Complex Migrations & Cutovers",
+    description:
+      "Execution of sensitive migrations with controlled cutovers and clearly defined rollback paths.",
+    icon: "bx:bxs-rocket",
+  },
+  {
+    title: "Production Operations",
+    description:
+      "Direct involvement in production operations, incident handling and complex infrastructure issues.",
+    icon: "bx:bxs-wrench",
+  },
+  {
+    title: "Resilience & Failure Engineering",
+    description:
+      "Designing and exercising infrastructure resilience through failure scenarios and recovery mechanisms.",
+    icon: "bx:bxs-shield",
+  },
+];
+
+---
+
+<section id="services" class="mt-16 md:mt-0 scroll-mt-24">
+  <div>
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+      Services
+    </h2>
+    <p class="text-lg mt-4 text-slate-600 max-w-3xl">
+      Engineering-focused work on complex infrastructure challenges.
+    </p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+    {
+      services.map((item) => (
+        <div class="flex gap-4 items-start">
+          <div class="mt-1 bg-black rounded-full p-2 w-8 h-8 shrink-0">
+            <Icon class="text-white" name={item.icon} />
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">{item.title}</h3>
+            <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

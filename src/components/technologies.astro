@@ -1,0 +1,72 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+
+// 1) "Core" infra & réseau d'abord (ce que tu veux vendre)
+// 2) Puis plateformes / virtualization
+// 3) Puis cloud & security & backup (compléments crédibilité)
+
+const logos = [
+  // Infrastructure / Compute
+  { name: "Dell", icon: "simple-icons:dell" },
+  // { name: "HP", icon: "simple-icons:hp" }, // (HPE n'est pas dans simple-icons)
+
+  // Networking
+  // { name: "Juniper", icon: "simple-icons:junipernetworks" },
+  { name: "Cisco", icon: "simple-icons:cisco" },
+  // { name: "Aruba", icon: "simple-icons:aruba" },
+  // { name: "Arista", icon: "simple-icons:aristanetworks" },
+
+  // Security
+  { name: "Fortinet", icon: "simple-icons:fortinet" },
+  { name: "Palo Alto Networks", icon: "simple-icons:paloaltonetworks"},
+
+  // Virtualization / Platforms
+  { name: "VMware", icon: "simple-icons:vmware" },
+  { name: "Nutanix", icon: "simple-icons:nutanix" },
+  { name: "Citrix", icon:"simple-icons:citrix" },
+  // Storage / Data
+  { name: "NetApp", icon: "simple-icons:netapp" },
+  // Backup / DR (si dispo dans ta version simple-icons)
+  { name: "Veeam", icon: "simple-icons:veeam" },
+
+  // Public Cloud
+  { name: "Amazon Web Services", icon: "simple-icons:amazonaws" },
+  { name: "Microsoft Azure", icon: "simple-icons:microsoftazure" },
+  { name: "Google Cloud", icon: "simple-icons:googlecloud" },
+];
+---
+
+<section id="technologies" class="mt-24 scroll-mt-24">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Technologies</h2>
+
+  <!-- Full-width grid -->
+  <div class="mt-14 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-16 gap-y-14">
+    {logos.map((item) => (
+      <div class="flex flex-col items-center gap-4">
+        <Icon
+          name={item.icon}
+          class="h-24 w-24 md:h-28 md:w-28 text-slate-700 opacity-90"
+          aria-label={item.name}
+        />
+        <span class="text-sm text-slate-600 text-center">{item.name}</span>
+      </div>
+    ))}
+  </div>
+
+  <!-- Chips for areas that are important but not shown as logos -->
+  <!-- <div class="mt-10 flex flex-wrap justify-center gap-2">
+    {[
+      "Infrastructure & Datacenter",
+      "Enterprise Networking & Security",
+      "Resilience & Disaster Recovery",   
+      "Hybrid & Public Cloud",
+      "Managed Services",
+      "Audit & Consulting",
+    ].map((t) => (
+      <span class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700">
+        {t}
+      </span>
+    ))}
+  </div> -->
+</section>
