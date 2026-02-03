@@ -5,8 +5,8 @@ import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
 export default defineConfig({
-  site: "https://naskz.github.io",
-  base: '/naskz_website',
+  site: "https://www.nask.fr",
+  base: '/',
   integrations: [mdx(), sitemap(), icon()],
   vite: {
     plugins: [tailwindcss()],
